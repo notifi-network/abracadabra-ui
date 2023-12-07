@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { RPC_ETH } from "@/constants/rpc";
+import { arrayify } from "ethers/lib/utils";
 
 export default {
   state: {
@@ -59,5 +60,12 @@ export default {
     getEnsName: (state) => state.ensName,
     getWalletIsConnected: (state) => state.isWalletConnected,
     getMetamaskActive: (state) => state.isMetamaskActive,
+    getSignMessage: (state) => {
+      return async (message) => {
+        const stringMessage = new TextDecoder("utf-8").decode(message);
+        const result = await state.signer.signMessage(stringMessage);
+        return arrayify(result);
+      };
+    },
   },
 };
