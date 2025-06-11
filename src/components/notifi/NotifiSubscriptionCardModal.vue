@@ -7,38 +7,19 @@
   <div class="notifi-modal-container">
     <div class="notifi-card">
       <Context
-        v-if="isOpenNotifiModal && !!account"
-        dappAddress="abracadabra"
+        tenantId="4zfoga0vjqh90ahg8apd"
         env="Production"
-        :walletPublicKey="account"
-        :walletBlockchain="notifiWalletBlockchain"
+        :walletPublicKey="account ?? '0x'"
+        :walletBlockchain="notifiWalletBlockchain ?? 'ETHEREUM'"
         :signMessage="signMessage"
+        cardId="90f9ac3f674a4a79955204afc1142a39"
+        :toggleTargetAvailability="{ wallet: isCoinBase ? true : false }"
+        :inputs="{ userWallet: [{ label: '', value: walletPublicKey }] }"
       >
-        <Card
-          :cardId="notifiCardId"
-          :darkMode="true"
-          :inputs="{ userWallet: account }"
-          :copy="{
-            FetchedStateCard: {
-              SubscriptionCardV1: {
-                EditCard: {
-                  AlertListPreview: {
-                    description:
-                      'Get real-time alerts to the destinations of your choice',
-                  },
-                },
-              },
-            },
-          }"
-          :inputSeparators="{
-            smsSeparator: {
-              content: 'OR',
-            },
-            telegramSeparator: {
-              content: 'OR',
-            },
-          }"
-        />
+        <div @click="getWalletConnection">
+          
+        </div>
+        <Card v-if="isOpenNotifiModal && !!account" :darkMode="true" />
       </Context>
     </div>
   </div>
@@ -47,9 +28,9 @@
 <script>
 import { mapGetters } from "vuex";
 import {
-  NotifiSubscriptionCard,
-  NotifiContext,
-} from "@notifi-network/notifi-react-card";
+  NotifiContextProvider,
+  NotifiCardModal,
+} from "@notifi-network/notifi-react";
 import { applyReactInVue, applyPureReactInVue } from "veaury";
 
 export default {
@@ -60,12 +41,17 @@ export default {
     },
   },
   emits: ["toggleNotifiModal"],
+  mounted() {
+    console.log("NotifiSubscriptionCardModal mounted");
+  },
   computed: {
     ...mapGetters({
       account: "getAccount",
       notifiCardId: "getNotifiCardId",
       notifiWalletBlockchain: "getNotifiWalletBlockchain",
       signMessage: "getNotifiSignMessage",
+      walletConnection: "getWalletIsConnected",
+      wagmiConfig: "getWagmiConfig",
     }),
   },
   methods: {
@@ -74,8 +60,8 @@ export default {
     },
   },
   components: {
-    Card: applyPureReactInVue(NotifiSubscriptionCard),
-    Context: applyReactInVue(NotifiContext),
+    Card: applyPureReactInVue(NotifiCardModal),
+    Context: applyReactInVue(NotifiContextProvider),
   },
 };
 </script>

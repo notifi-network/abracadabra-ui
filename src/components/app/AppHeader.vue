@@ -49,7 +49,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { defineAsyncComponent } from "vue";
-import { newFrontendClient } from "@notifi-network/notifi-frontend-client";
+import { instantiateFrontendClient } from "@notifi-network/notifi-frontend-client";
 
 export default {
   data() {
@@ -93,11 +93,12 @@ export default {
         account: {
           publicKey: this.account,
         },
-        tenantId: "abracadabra",
+        tenantId: "4zfoga0vjqh90ahg8apd",
+        // tenantId: "abracadabra",
         walletBlockchain: this.notifiWalletBlockchain,
         env: "Production",
       };
-      const frontendClient = newFrontendClient(configInput);
+      const frontendClient = instantiateFrontendClient(configInput);
       await frontendClient.initialize();
       if (frontendClient.userState.status !== "authenticated") {
         this.isSignedUp = false;
