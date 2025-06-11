@@ -12,8 +12,7 @@
         :walletPublicKey="account ?? '0x'"
         :walletBlockchain="notifiWalletBlockchain ?? 'ETHEREUM'"
         :signMessage="signMessage"
-        cardId="019743e6bae573129355b7ddc6a11b49"
-        :toggleTargetAvailability="{ wallet: isCoinBase ? true : false }"
+        :cardId="notifiCardId" 
         :inputs="{ walletAddress: [{ label: '', value: account }] }"
       >
         <div @click="getWalletConnection">

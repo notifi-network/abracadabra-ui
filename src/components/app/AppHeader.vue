@@ -103,7 +103,7 @@ export default {
       }
       this.isSignedUp = true;
       const { count } =
-        await frontendClient.getUnreadNotificationHistoryCount();
+        await frontendClient.getUnreadNotificationHistoryCount(this.notifiCardId);        
       this.unreadNotificationCount = count;
     },
 
