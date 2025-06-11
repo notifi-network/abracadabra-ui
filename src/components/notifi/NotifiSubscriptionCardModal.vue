@@ -12,9 +12,9 @@
         :walletPublicKey="account ?? '0x'"
         :walletBlockchain="notifiWalletBlockchain ?? 'ETHEREUM'"
         :signMessage="signMessage"
-        cardId="90f9ac3f674a4a79955204afc1142a39"
+        cardId="019743e6bae573129355b7ddc6a11b49"
         :toggleTargetAvailability="{ wallet: isCoinBase ? true : false }"
-        :inputs="{ userWallet: [{ label: '', value: walletPublicKey }] }"
+        :inputs="{ walletAddress: [{ label: '', value: account }] }"
       >
         <div @click="getWalletConnection">
           
@@ -26,6 +26,9 @@
 </template>
 
 <script>
+// TODO: ⬆ Replace tenantId with "abracadabra"
+// TODO: ⬆ Replace walletBlockchain with `:walletBlockchain="notifiWalletBlockchain"`
+// TODO: ⬆ Make sure the input key must be `walletAddress` instead of legacy `userWallet`
 import { mapGetters } from "vuex";
 import {
   NotifiContextProvider,
@@ -41,13 +44,10 @@ export default {
     },
   },
   emits: ["toggleNotifiModal"],
-  mounted() {
-    console.log("NotifiSubscriptionCardModal mounted");
-  },
   computed: {
     ...mapGetters({
       account: "getAccount",
-      notifiCardId: "getNotifiCardId",
+      notifiCardId: "getNotifiCardId", // TODO: ⬆ Use this to replace dummy card ID `cardId="019743e6bae573129355b7ddc6a11b49"` -> `:cardId="notifiCardId"`
       notifiWalletBlockchain: "getNotifiWalletBlockchain",
       signMessage: "getNotifiSignMessage",
       walletConnection: "getWalletIsConnected",
@@ -79,6 +79,12 @@ export default {
   position: absolute;
   z-index: 10;
 }
+
+.notifi-card:has(.notifi-connect) {
+  transform: translateX(-63%) translateY(30%);
+}
+
+
 .notifi-card-overlay {
   width: 100vw;
   height: 100vh;
@@ -93,6 +99,10 @@ export default {
     position: fixed;
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .notifi-card:has(.notifi-connect),
+  .notifi-card:has(.notifi-ftu) {
     transform: translate(-50%, -50%);
   }
 }

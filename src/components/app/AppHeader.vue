@@ -89,16 +89,13 @@ export default {
 
   methods: {
     async updateUnreadNotificationCount() {
-      const configInput = {
-        account: {
-          publicKey: this.account,
+      const frontendClient = instantiateFrontendClient(
+        "4zfoga0vjqh90ahg8apd", // TODO: Replace with "abracadabra" tenant ID
+        {
+          walletBlockchain: this.notifiWalletBlockchain,
+          walletPublicKey: this.account,
         },
-        tenantId: "4zfoga0vjqh90ahg8apd",
-        // tenantId: "abracadabra",
-        walletBlockchain: this.notifiWalletBlockchain,
-        env: "Production",
-      };
-      const frontendClient = instantiateFrontendClient(configInput);
+      );
       await frontendClient.initialize();
       if (frontendClient.userState.status !== "authenticated") {
         this.isSignedUp = false;
