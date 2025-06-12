@@ -4,9 +4,10 @@
     v-if="isOpenNotifiModal && !!account"
     @click="toggleNotifiModal"
   ></div>
-  <div class="notifi-modal-container">
+  <div class="notifi-modal-container"> 
     <div class="notifi-card">
       <Context
+        :key="`${account}-${notifiCardId}-${notifiWalletBlockchain}`"
         tenantId="4zfoga0vjqh90ahg8apd"
         env="Production"
         :walletPublicKey="account ?? '0x'"
@@ -15,9 +16,6 @@
         :cardId="notifiCardId" 
         :inputs="{ walletAddress: [{ label: '', value: account }] }"
       >
-        <div @click="getWalletConnection">
-          
-        </div>
         <Card v-if="isOpenNotifiModal && !!account" :darkMode="true" />
       </Context>
     </div>
