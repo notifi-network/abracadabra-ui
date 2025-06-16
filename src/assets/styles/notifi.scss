@@ -57,17 +57,18 @@
 .notifi-target-cta-button {
   border: 2px solid var(--notifi-color-primary) !important;
   background-color: rgba(0, 0, 0, 0) !important;
-  padding: 0rem 0rem !important;
+  padding: 0 0 !important;
   border-radius: 12px;
 }
 
 .notifi-target-cta-button.disabled {
-  height: 1.8rem !important; // TODO: consider better approach
+  height: 28.8px !important;
 }
 
 .notifi-target-state-banner {
   background-color: var(--notifi-color-input) !important;
 }
+
 .notifi-target-state-banner-verify.history {
   background-color: var(--notifi-color-input) !important;
   border: none !important;
@@ -81,7 +82,7 @@
 .notifi-target-state-banner-verify-cta.history {
   border: 2px solid var(--notifi-color-primary) !important;
   background: rgba(0, 0, 0, 0) !important;
-  padding: 0.05rem 0.05rem !important;
+  padding: 0.8px 0.8px !important;
   border-radius: 12px;
 }
 
@@ -97,7 +98,7 @@
 }
 
 .notifi-target-list-item-remove {
-  top: 0.5rem !important;
+  top: 8px !important;
 }
 
 .notifi-connect-button .notifi-spinner-container {
@@ -114,6 +115,11 @@
   align-items: baseline;
 }
 
+.notifi-topic-options-item.button,
+.notifi-topic-option-custom-input-container {
+  background-color: var(--notifi-color-card) !important;
+}
+
 .notifi-tooltip-content {
   background-color: var(--notifi-color-card) !important;
   border: 1px solid var(--notifi-color-stroke) !important;
@@ -123,8 +129,9 @@
   width: 16px !important;
   height: 16px !important;
 }
+
 .notifi-spinner {
-  top: 1rem !important;
+  top: 16px !important;
 }
 
 
@@ -173,15 +180,6 @@
   color: var(--notifi-color-light-text);
 }
 
-// .notifi-history-list-loading-more{
-//   padding: 0;
-// }
-
-// .notifi-history-list-loading-more .notifi-spinner{
-//   top: -3px !important;
-// }
-
-
 .notifi-history-detail {
   background-color: transparent !important;
 }
@@ -198,11 +196,11 @@
   background-color: var(--notifi-color-primary) !important;
 }
 
-// @media screen and (max-width: 1024px) {
-//   .NotifiSubscriptionCard__container {
-//     width: 365px;
-//     top: 40px;
-//     max-height: 580px;
-//     max-width: 350px;
-//   }
-// }
+@media screen and (max-width: 1024px) {
+  .notifi-card-modal {
+    width: 365px;
+    top: 40px;
+    max-height: 580px;
+    max-width: 350px;
+  }
+}
