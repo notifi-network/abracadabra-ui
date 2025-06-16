@@ -1,26 +1,21 @@
-// Override styles from @notifi-network/notifi-react-card/dist/index.css (main.ts)
+// Override styles from @notifi-network/notifi-react/dist/index.css (main.ts)
 :root {
-  --notifi-color-brand: #5959f4;
-  --notifi-color-brand-secondary: #a9e2fc;
+  --notifi-color-primary: #7F91F6;
+  --notifi-color-error: #D5828B;
+  --notifi-color-verified: #A4DE95;
+  --notifi-color-input: #0C1021;
   --notifi-color-card: #14192E;
-  --notifi-color-gray-secondary: #3b394a;
-  --notifi-color-heather: #b6b8d5;
-  --notifi-color-gray-tooltip: #4c4c61;
-  --notifi-color-light-green: #b4e2ac;
-  --notifi-lineart-gradient-dark: linear-gradient(
+  --notifi-color-stroke: #0D2867;
+  --notifi-color-light-text: #A3A4AF;
+  --notifi-color-button: linear-gradient(
     90.09deg,
     #364A93 -0.96%,
     #6E5DC9 99.92%
   );
-  --notifi-lineart-gradient-light: linear-gradient(
-    90deg,
-    #5959f4 0%,
-    #85bbf2 100%
-  );
 }
 
 .notifi-target-state-banner-verify-cta {
-  color: #A3A4AF !important;
+  color: var(--notifi-color-light-text) !important;
 }
 
 .notifi-card-modal {
@@ -39,7 +34,7 @@
 
 .notifi-connect-button, 
 .notifi-ftu-target-list-button {
-  background: var(--notifi-lineart-gradient-dark) !important; 
+  background: var(--notifi-color-button) !important; 
   color: white !important; 
   border-radius: 16px !important; 
 }
@@ -52,7 +47,7 @@
 }
 
 .notifi-target-list-item-content {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
 }
 
 .notifi-target-list-item-warning {
@@ -60,7 +55,7 @@
 }
 
 .notifi-target-cta-button {
-  border: 2px solid #7F91F6 !important;
+  border: 2px solid var(--notifi-color-primary) !important;
   background-color: rgba(0, 0, 0, 0) !important;
   padding: 0rem 0rem !important;
   border-radius: 12px;
@@ -71,10 +66,10 @@
 }
 
 .notifi-target-state-banner {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
 }
 .notifi-target-state-banner-verify.history {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
   border: none !important;
 }
 
@@ -84,14 +79,14 @@
 }
 
 .notifi-target-state-banner-verify-cta.history {
-  border: 2px solid #7F91F6 !important;
+  border: 2px solid var(--notifi-color-primary) !important;
   background: rgba(0, 0, 0, 0) !important;
   padding: 0.05rem 0.05rem !important;
   border-radius: 12px;
 }
 
 .notifi-target-list-item-input-form {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
   margin-top: -3px;
   padding-top: 3px;
   border-radius: 0 0 8px 8px;
@@ -111,7 +106,7 @@
 }
 
 .notifi-topic-row {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
   border: 1px solid #20283D !important;
 }
 
@@ -121,7 +116,7 @@
 
 .notifi-tooltip-content {
   background-color: var(--notifi-color-card) !important;
-  border: 1px solid #0D2867 !important;
+  border: 1px solid var(--notifi-color-stroke) !important;
 }
 
 .notifi-spinner-container {
@@ -143,23 +138,23 @@
 }
 
 .notifi-inbox-history-detail-header, .notifi-inbox-history-list-header, .notifi-inbox-config-topic-header, .notifi-inbox-config-target-header {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
   border: none !important;
 }
 
 .notifi-inbox-nav-tabs {
-  background-color: #0C1021 !important;
+  background-color: var(--notifi-color-input) !important;
   border-top: #00296b 1px solid !important; 
 }
 
 .notifi-history-list-empty-description {
-  color: #A3A4AF !important;
+  color: var(--notifi-color-light-text) !important;
 }
 .notifi-history-row {
-  background-color: #0C1021;
+  background-color: var(--notifi-color-input);
 }
 .notifi-history-row-unread-indicator {
-  background-color: #7F91F6 !important;
+  background-color: var(--notifi-color-primary) !important;
 }
 
 .notifi-history-row-title-text {
@@ -170,12 +165,12 @@
 .notifi-history-row-timestamp {
   font-size: 12px;
   font-weight: 300;
-  color: #A3A4AF;
+  color: var(--notifi-color-light-text);
 }
 .notifi-history-row-subject {
   font-size: 14px;
   font-weight: 400;
-  color: #A3A4AF;
+  color: var(--notifi-color-light-text);
 }
 
 // .notifi-history-list-loading-more{
@@ -192,7 +187,7 @@
 }
 
 .notifi-history-detail-timestamp {
-  color: #A3A4AF !important;
+  color: var(--notifi-color-light-text) !important;
 }
 
 .notifi-toggle-slider {
@@ -200,7 +195,7 @@
 }
 
 .notifi-toggle-input:checked + .notifi-toggle-slider {
-  background-color: #7F91F6 !important;
+  background-color: var(--notifi-color-primary) !important;
 }
 
 // @media screen and (max-width: 1024px) {
