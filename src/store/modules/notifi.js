@@ -14,7 +14,7 @@ export default {
       switch (rootState.getChainId) {
         case 1:
           return "0197538567c276b28848e2c4dd4bf497";
-        case 43114: 
+        case 43114:
           return "019753874ef8758baf463de44988503a";
         case 56:
           return "01975386bbde701f8b2910680f2cbc0a";

@@ -10,8 +10,8 @@
         :key="`${account}-${notifiCardId}-${notifiWalletBlockchain}`"
         tenantId="4zfoga0vjqh90ahg8apd"
         env="Production"
-        :walletPublicKey="account ?? '0x'"
-        :walletBlockchain="notifiWalletBlockchain ?? 'ETHEREUM'"
+        :walletPublicKey="account"
+        :walletBlockchain="notifiWalletBlockchain"
         :signMessage="signMessage"
         :cardId="notifiCardId" 
         :inputs="{ walletAddress: [{ label: '', value: account }] }"
@@ -46,8 +46,6 @@ export default {
       notifiCardId: "getNotifiCardId",
       notifiWalletBlockchain: "getNotifiWalletBlockchain",
       signMessage: "getNotifiSignMessage",
-      walletConnection: "getWalletIsConnected",
-      wagmiConfig: "getWagmiConfig",
     }),
   },
   methods: {
