@@ -8,7 +8,7 @@
     <div class="notifi-card">
       <Context
         :key="`${account}-${notifiCardId}-${notifiWalletBlockchain}`"
-        tenantId="4zfoga0vjqh90ahg8apd"
+        tenantId="abracadabra"
         env="Production"
         :walletPublicKey="account"
         :walletBlockchain="notifiWalletBlockchain"
@@ -23,8 +23,6 @@
 </template>
 
 <script>
-// TODO: ⬆ Replace tenantId with "abracadabra"
-// TODO: ⬆ Make sure the input key must be `walletAddress` instead of legacy `userWallet`
 import { mapGetters } from "vuex";
 import {
   NotifiContextProvider,
